@@ -2,40 +2,38 @@ package Inheritance;
 
 class School{
     private String name;
-    School(){
-        name = "DFS";
+    School(String name){
+        this.name = name;
     }
     void printSchoolName(){
         System.out.println("School Name is : " + name);
+    }
+    protected void demo(){
+        System.out.println("Demo by school");
     }
 }
 
 class Student extends School{
     private String name;
     Student(String name){
+        super("DFS");
         this.name = name;
     }
     void printStudentName(){
         System.out.println("Student name is : " + name);
     }
-}
-
-class Parent extends Student{
-    private String name;
-    Parent(String name,  String studentName){
-        super(studentName);
-        this.name = name;
-    }
-    void printParentName(){
-        System.out.println("Parent Name : " + name);
+    @Override
+    public void demo(){
+        super.demo();   // Can use super to access the accessible properties or behavior of parent or super-class
+        System.out.println("Demo by Student");
     }
 }
 
 public class Main{
     public static void main(String[] args) {
-        Parent p1= new Parent("Dad" , "Son");
-        p1.printParentName();
-        p1.printStudentName();
-        p1.printSchoolName();
+        Student st1 = new Student("Riya");
+        st1.printSchoolName();
+        st1.printStudentName();
+        st1.demo();
     }
 }
