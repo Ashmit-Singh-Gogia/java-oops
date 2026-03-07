@@ -23,7 +23,7 @@ class Student{
     }
 }
 
-public class Main {
+public class OneToOne {
     public static void main(String[] args) {
         Passport passport = new Passport("9949293949292");
         Student student = new Student("Riya", passport);
